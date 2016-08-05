@@ -9,10 +9,10 @@ cur = conn.cursor()
 
 # creating data base
 try:
-    cur.execute("CREATE DATABASE tcount")
+	cur.execute("CREATE DATABASE tcount")
 	conn.commit()
 except:
-    print "Could not create Tcount"​
+	print "Could not create Tcount"​
 
 conn.close()
 
@@ -23,7 +23,7 @@ cur = conn.cursor()
 try:
 	cur.execute('''CREATE TABLE Tweetwordcount
 		(word TEXT PRIMARY KEY     NOT NULL,
-       	count INT     NOT NULL);''')
+		count INT     NOT NULL);''')
 	conn.commit()
 except:
 	print "Could not create Tweetwordcount"​
