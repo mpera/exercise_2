@@ -1,4 +1,4 @@
-(ns tweetcount
+(ns tweetwordcount
         (:use     [streamparse.specs])
         (:gen-class))
 
@@ -10,7 +10,7 @@
                 "spouts.tweets.Tweets"
                 ["tweet"]
                 :p 1
-                 )
+                )
         }
         ;; bolt configuration
         {"parse-tweet-bolt" (python-bolt-spec
@@ -19,7 +19,7 @@
                 "bolts.parse.ParseTweet"
                 ["valid_words"]
                 :p 2
-                 )
+                )
 
         "count-bolt" (python-bolt-spec
                 options

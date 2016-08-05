@@ -5,19 +5,19 @@ from streamparse.bolt import Bolt
 import psycopg2
 
 
-class WordCounter(Bolt):
+class TweetCounter(Bolt):
 
-    def initialize(self, conf, ctx):
-        self.counts = Counter()
-        self.redis = StrictRedis()
+	def initialize(self, conf, ctx):
+		self.counts = Counter()
+		self.redis = StrictRedis()
 
-    def process(self, tup):
-        word = tup.values[0]
-        word = word.lower()
+	def process(self, tup):
+		word = tup.values[0]
+		word = word.lower()
 	    
 	    # Increment the local count
-        self.counts[word] += 1
-        self.emit([word, self.counts[word]])
+		self.counts[word] += 1
+		self.emit([word, srt(self.counts[word])])
         
 		# Connect to tcount database
 		conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
@@ -31,9 +31,9 @@ class WordCounter(Bolt):
 		# Updates the word with a new count if the word has appeared before	
 		except:
 			conn.commit()
-        	cur.execute("UPDATE Tweetwordcount SET count=%s WHERE word=%s;", (self.counts[word], word))
+			cur.execute("UPDATE Tweetwordcount SET count=%s WHERE word=%s;", (self.counts[word], word))
 			conn.commit()				
 
 
         # Log the count - just to see the topology running
-        self.log('%s: %d' % (word, self.counts[word]))
+		self.log('%s: %d' % (word, self.counts[word]))

@@ -26,13 +26,3 @@
 3. To see all the words within a count range (eg, 2,5), run: python histogram.py <x,y>
 
 
-
-
-CHECK: do other people import their twitter credentials .py doc?
-
-To enter postgres:
-cd /data
-psql tcount postgres (only works after tcount is created)
-\dt (see all tables in database)
-To disconnect:
-\q
