@@ -24,7 +24,7 @@
         "count-bolt" (python-bolt-spec
                 options
                 {"parse-tweet-bolt" ["valid_words"]}
-                "bolts.wordcount.WordCounter"
+                "bolts.tweetcounter.TweetCounter"
                 ["word" "count"]
                 :p 2
                 )
