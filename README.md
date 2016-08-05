@@ -26,7 +26,5 @@
 3. To see all the words within a count range (eg, 2,5), run: python histogram.py <x,y>
 
 #### Notes
-To learn about the full architecture, see Architecture.pdf
-To see the app in action, see the Screenshots folder
-To see a histogram of the top 20 words during the first 10 minutes of the 2016 Olympic games, see Plot.png
+To learn about the full architecture, see Architecture.pdf.  To see the app in action, see the Screenshots folder.  To see a histogram of the top 20 words during the first 10 minutes of the 2016 Olympic games, see Plot.png
 
