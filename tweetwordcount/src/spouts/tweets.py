@@ -6,9 +6,6 @@ import Queue, threading
 
 from streamparse.spout import Spout
 
-################################################################################
-# Twitter credentials
-################################################################################
 twitter_credentials = {
     "consumer_key"        :  "CgwzWJmkPgQunXAFtymxmODxA",
     "consumer_secret"     :  "dhURrRH2Sq0xlCQCa7RwjVWBsA7qCL5Zns8vT58zKjzXYnnZoS",
