@@ -12,7 +12,7 @@ try:
 	cur.execute("CREATE DATABASE tcount")
 	conn.commit()
 except:
-	print "Could not create Tcount"​
+	print "Could not create Tcount"
 
 conn.close()
 
@@ -26,6 +26,6 @@ try:
 		count INT     NOT NULL);''')
 	conn.commit()
 except:
-	print "Could not create Tweetwordcount"​
+	print "Could not create Tweetwordcount"
 
 conn.close()
