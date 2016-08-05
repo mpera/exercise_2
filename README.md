@@ -2,7 +2,7 @@
 ### How to run this Twitter wordcount application
 
 #### Set up the machine
-1. Create an Amazon EC2 instance and install streamparse on it. 
+1. Create an Amazon EC2 instance and install streamparse and lein on it. 
 2. Make sure that python 2.7 is the default Python version
 3. Install psycopg2 by running: pip install psycopg2
 4. Install tweepy by running: pip install tweepy
