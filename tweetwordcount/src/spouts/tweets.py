@@ -1,11 +1,14 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 import itertools, time
-import tweepy, copy 
+import tweepy, copy
 import Queue, threading
 
 from streamparse.spout import Spout
 
+################################################################################
+# Twitter credentials
+################################################################################
 twitter_credentials = {
     "consumer_key"        :  "CgwzWJmkPgQunXAFtymxmODxA",
     "consumer_secret"     :  "dhURrRH2Sq0xlCQCa7RwjVWBsA7qCL5Zns8vT58zKjzXYnnZoS",
@@ -30,10 +33,10 @@ class TweetStreamListener(tweepy.StreamListener):
     def on_status(self, status):
         self.listener.queue().put(status.text, timeout = 0.01)
         return True
-  
+
     def on_error(self, status_code):
         return True # keep stream alive
-  
+
     def on_limit(self, track):
         return True # keep stream alive
 
@@ -42,8 +45,8 @@ class Tweets(Spout):
     def initialize(self, stormconf, context):
         self._queue = Queue.Queue(maxsize = 100)
 
-        consumer_key = auth_get("consumer_key") 
-        consumer_secret = auth_get("consumer_secret") 
+        consumer_key = auth_get("consumer_key")
+        consumer_secret = auth_get("consumer_secret")
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 
         if auth_get("access_token") and auth_get("access_token_secret"):
@@ -68,17 +71,18 @@ class Tweets(Spout):
 
     def next_tuple(self):
         try:
-            tweet = self.queue().get(timeout = 0.1) 
+            tweet = self.queue().get(timeout = 0.1)
             if tweet:
                 self.queue().task_done()
                 self.emit([tweet])
- 
+
         except Queue.Empty:
             self.log("Empty queue exception ")
-            time.sleep(0.1) 
+            time.sleep(0.1)
 
     def ack(self, tup_id):
         pass  # if a tuple is processed properly, do nothing
 
     def fail(self, tup_id):
         pass  # if a tuple fails to process, do nothing
+
