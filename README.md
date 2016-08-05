@@ -7,7 +7,7 @@
 2. Install psycopg2 by running: pip install psycopg2
 3. Install tweepy by running: pip install tweepy
 4. Import all files in exercise_2 folder from github 
-- git clone https://github.com/mpera/exercise_2/tree/master
+- git clone https://github.com/mpera/exercise_2
 
 #### Set up postgres database
 1. Make sure that port 5432 is open on the instance
