@@ -17,7 +17,7 @@ class TweetCounter(Bolt):
 	    
 	    # Increment the local count
 		self.counts[word] += 1
-		self.emit([word, srt(self.counts[word])])
+		self.emit([word, str(self.counts[word])])
         
 		# Connect to tcount database
 		conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
