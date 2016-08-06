@@ -1,4 +1,4 @@
-# Exercise_2 instructions
+# Exercise 2 instructions
 ### How to run this Twitter wordcount application
 
 #### Set up the machine
